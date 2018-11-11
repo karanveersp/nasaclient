@@ -19,8 +19,8 @@ public class HomeController {
     @GetMapping("/")
     public ModelAndView index() {
         RestTemplate restTemplate = new RestTemplate();
-        String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        String uri = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + today + "&api_key=" + apiKey;
+        String yesterday = LocalDate.now().minusDays(1l).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        String uri = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + yesterday + "&api_key=" + apiKey;
         RoverCollection rc = restTemplate.getForObject(uri, RoverCollection.class);
         ModelAndView mv = new ModelAndView("index");
         mv.addObject("rc", rc);
