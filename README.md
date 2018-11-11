@@ -1,5 +1,5 @@
 # NASA Client
-A Spring Boot consumer of NASA's public api.
+A Spring Boot consumer of NASA's public REST api.
 
 The application is hosted at: https://nasaclient.herokuapp.com/
 
