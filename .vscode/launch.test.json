@@ -1,0 +1,30 @@
+{
+    "run": {
+        "default": "",
+        "items": [
+            {
+                "name": "space",
+                "projectName": "space",
+                "workingDirectory": "c:\\Users\\Karan\\eclipse-workspace\\codeProjects\\space",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    },
+    "debug": {
+        "default": "",
+        "items": [
+            {
+                "name": "space",
+                "projectName": "space",
+                "workingDirectory": "c:\\Users\\Karan\\eclipse-workspace\\codeProjects\\space",
+                "args": [],
+                "vmargs": [],
+                "env": {},
+                "preLaunchTask": ""
+            }
+        ]
+    }
+}
