@@ -1,4 +1,4 @@
-package com.karan.model;
+package com.nasaclient.model;
 
 import java.util.Map;
 
