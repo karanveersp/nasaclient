@@ -38,10 +38,20 @@
         <h1 class="text-light mb-3">NASA Client</h1>
 
         <p class="text-light mb-3">A Spring Boot consumer of NASA's public api. <br> <br>
+
+        <th:block th:if="${rc.photos[0].earthDate} == '2018-11-10'">
+            Here's a photo that that <span class="text-info">Curiosity</span> took on 11-10-2018 (sol <span class="text-warning"
+                th:text="${rc.photos[0].sol}"></span>) on Mars.</p>
+
+            <img th:src="${rc.photos[0].url}" class="img-fluid border border-secondary" alt="Rover image">
+        </th:block>
+        <th:block th:unless="${rc.photos[0].earthDate} == '2018-11-10'">
+
             Here's a photo that that <span class="text-info">Curiosity</span> took yesterday (sol <span class="text-warning"
                 th:text="${rc.photos[0].sol}"></span>) on Mars.</p>
 
-        <img th:src="${rc.photos[0].url}" class="img-fluid border border-secondary" alt="Rover image">
+            <img th:src="${rc.photos[0].url}" class="img-fluid border border-secondary" alt="Rover image">
+        </th:block>
 
         <!--TODO add page to get mars rover pictures for a specified earth day and display clickable tiles-->
         <!--TODO add 'About' page-->

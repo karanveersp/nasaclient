@@ -24,7 +24,12 @@ public class HomeController {
         RestTemplate restTemplate = new RestTemplate();
         String yesterday = LocalDate.now().minusDays(1l).format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         String uri = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=" + yesterday + "&api_key=" + apiKey.getKey();
+        String fallbackUri = "https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2018-11-10&api_key=" + apiKey.getKey();
         RoverCollection rc = restTemplate.getForObject(uri, RoverCollection.class);
+        if (rc.getPhotos().length == 0) {
+            // if  no photos were uploaded for the rover yesterday. Then display a known date's photos. 
+            rc = restTemplate.getForObject(fallbackUri, RoverCollection.class);
+        }
         ModelAndView mv = new ModelAndView("index");
         mv.addObject("rc", rc);
         return mv;
