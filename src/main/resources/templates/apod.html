@@ -21,10 +21,13 @@
         <p class="muted text-light">Discover the cosmos! Each day a different image or photograph of our fascinating
             universe is featured, along with a brief explanation written by a professional astronomer.</p> <br> <br>
         <h3 class="text-light mb-5"><span class="text-info" th:text="${apod.title}"></span></h3>
-        <img th:src="${apod.url}" class="img-fluid mb-5 border border-secondary" alt="Astronomical image">
- 
-        <div class="row">
 
+        <img th:if="${apod.mediaType} == 'image'" th:src="${apod.url}" class="img-fluid mb-5 border border-secondary" alt="Astronomical image">
+        <iframe width="960" height="540" th:if="${apod.mediaType} == 'video'" th:src="${apod.url}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
+        <br><br>
+
+        <div class="row">
             <p class="text-light lead text-left ml-5" th:text="${apod.explanation}"></p>
         </div>
     </main>

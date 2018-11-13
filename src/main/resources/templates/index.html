@@ -39,13 +39,13 @@
 
         <p class="text-light mb-3">A Spring Boot consumer of NASA's public api. <br> <br>
 
-            <div th:if="rc.photos[0].sol == 2226">
+            <div th:if="${rc.photos[0].sol} == 2226">
                 <p class="text-light">Here's a photo that that <span class="text-info">Curiosity</span> took on
                     11-10-2018 (sol <span class="text-warning" th:text="${rc.photos[0].sol}"></span>) on Mars.</p>
 
                 <img th:src="${rc.photos[0].url}" class="img-fluid border border-secondary" alt="Rover image">
             </div>
-            <div th:unless="rc.photos[0].sol == 2226">
+            <div th:unless="${rc.photos[0].sol} == 2226">
 
                 <p class="text-light">Here's a photo that that <span class="text-info">Curiosity</span> took yesterday
                     (sol <span class="text-warning" th:text="${rc.photos[0].sol}"></span>) on Mars.</p>

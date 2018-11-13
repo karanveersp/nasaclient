@@ -1,6 +1,7 @@
 package com.nasaclient.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSetter;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Apod {
@@ -10,6 +11,15 @@ public class Apod {
     private String hdurl;
     private String title;
     private String url;
+    private String mediaType;
+
+    public String getMediaType() {
+        return mediaType;
+    }
+    @JsonSetter("media_type")
+    public void setMediaType(String mediaType) {
+        this.mediaType = mediaType;
+    }
 
     public String getUrl() {
         return url;
